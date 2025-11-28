@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Documento HTML sencillo</title>
+  <!-- estilos movidos a styles.css -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Mi página sencilla</h1>
+      <nav>
+        <a href="#">Inicio</a>
+        <a href="#acerca">Acerca</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main class="card">
+      <section>
+        <h2>Bienvenido</h2>
+        <p>Este es un documento HTML básico pensado como punto de partida. Contiene estructura mínima, estilos sencillos y un pequeño script para interacción.</p>
+      </section>
+
+      <section id="acerca" style="margin-top:1rem">
+        <h3>Características</h3>
+        <ul>
+          <li>HTML semántico</li>
+          <li>Estilos en el mismo archivo (para empezar rápido)</li>
+          <li>Botón que cambia el tema claro/oscuro</li>
+        </ul>
+      </section>
+
+      <section id="contacto" style="margin-top:1rem">
+        <h3>Contacto</h3>
+        <form onsubmit="event.preventDefault();alert('Formulario enviado (simulado)')">
+          <label style="display:block;margin-bottom:.4rem">Nombre</label>
+          <input type="text" name="nombre" placeholder="Tu nombre" required style="width:100%;padding:.5rem;border-radius:6px;border:1px solid #e5e7eb;margin-bottom:.6rem">
+          <label style="display:block;margin-bottom:.4rem">Mensaje</label>
+          <textarea name="mensaje" rows="4" placeholder="Escribe algo..." style="width:100%;padding:.5rem;border-radius:6px;border:1px solid #e5e7eb"></textarea>
+          <div style="margin-top:.6rem;display:flex;gap:.6rem;align-items:center">
+            <button type="submit">Enviar</button>
+            <button type="button" id="themeBtn">Cambiar tema</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      Hecho con ❤️ — Documento de ejemplo
+    </footer>
+  </div>
+
+  <script>
+    const themeBtn = document.getElementById('themeBtn');
+    let dark = false;
+    themeBtn.addEventListener('click', () => {
+      dark = !dark;
+      if(dark){
+        document.documentElement.style.setProperty('--bg','#0b1220');
+        document.documentElement.style.setProperty('--card','#071028');
+        document.documentElement.style.setProperty('--accent','#06b6d4');
+        document.documentElement.style.setProperty('--text','#f8fafc');
+      } else {
+        document.documentElement.style.setProperty('--bg','#f7f7f9');
+        document.documentElement.style.setProperty('--card','#ffffff');
+        document.documentElement.style.setProperty('--accent','#4f46e5');
+        document.documentElement.style.setProperty('--text','#111827');
+      }
+    });
+  </script>
+</body>
+</html>
